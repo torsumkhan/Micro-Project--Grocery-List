@@ -47,6 +47,11 @@ function App() {
     setName(e.target.value);
   };
 
+  const clearHandler = () => {
+    showAlert(true, "danger", "List cleared");
+    setList([]);
+  };
+
   const removeHandler = (id) => {
     showAlert(true, "danger", "Item deleted from list");
     setList(
@@ -66,10 +71,10 @@ function App() {
   return (
     <section className="section-center">
       <form onSubmit={handleSubmit} className="grocery-form">
-        {alert.show && <Alert {...alert} removeAlert={showAlert} />}
         <h3 className="title">Grocery List</h3>
+        {alert.show && <Alert {...alert} removeAlert={showAlert} />}
         <input
-          id="input"
+          className="input"
           type="text"
           placeholder="e.g. milk"
           value={name}
@@ -86,12 +91,7 @@ function App() {
             removeHandler={removeHandler}
             editHandler={editHandler}
           />
-          <button
-            className="clear-btn"
-            onClick={() => {
-              setList([]);
-            }}
-          >
+          <button className="clear-btn" onClick={clearHandler}>
             Clear Items
           </button>
         </div>
