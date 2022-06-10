@@ -1,0 +1,31 @@
+.grocery-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 1.6rem;
+    font-weight: 200;
+}
+
+.edit {
+    color: green;
+}
+
+.trash {
+    color: red;
+}
+
+.edit, .trash {
+    border: none;
+    cursor: pointer;
+}
+
+.btn-container {
+    display: flex;
+    gap: 10%
+}
+

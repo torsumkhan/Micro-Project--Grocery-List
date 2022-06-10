@@ -26,7 +26,6 @@ function App() {
 
   const handleChange = (e) => {
     setName(e.target.value);
-    console.log(name);
   };
 
   return (
@@ -45,10 +44,19 @@ function App() {
           {isEditing ? "edit" : "add"}
         </button>
       </form>
-      <div className="grocery-container">
-        <List items={list} />
-        <button className="clear-btn">Clear Items</button>
-      </div>
+      {list.length > 0 && (
+        <div className="grocery-container">
+          <List items={list} />
+          <button
+            className="clear-btn"
+            onClick={() => {
+              setList([]);
+            }}
+          >
+            Clear Items
+          </button>
+        </div>
+      )}
     </section>
   );
 }
