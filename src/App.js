@@ -36,6 +36,15 @@ function App() {
     setName(e.target.value);
   };
 
+  const removeHandler = (id) => {
+    showAlert(true, "danger", "Item deleted from list");
+    setList(
+      list.filter((item) => {
+        return item.id !== id;
+      })
+    );
+  };
+
   return (
     <section className="section-center">
       <form onSubmit={handleSubmit} className="grocery-form">
@@ -54,7 +63,7 @@ function App() {
       </form>
       {list.length > 0 && (
         <div className="grocery-container">
-          <List items={list} />
+          <List items={list} removeHandler={removeHandler} />
           <button
             className="clear-btn"
             onClick={() => {
